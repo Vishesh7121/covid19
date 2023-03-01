@@ -57,7 +57,7 @@ df3.show()
   df2.createOrReplaceTempView("country_lookup")
    df3.createOrReplaceTempView("testing_data")
  
- spark.sql("""
+ val df5=spark.sql("""
       select t.country  ,
       c.country_code_2_digit   ,
       c.country_code_3_digit   ,
@@ -93,6 +93,6 @@ df3.show()
    
      """).show(100)
      
- //df5.coalesce(1).write.format("csv").option("header",true).mode(SaveMode.Overwrite).save("/Users/vishe/Downloads/finaltestingresults")
+ df5.coalesce(1).write.format("csv").option("header",true).mode(SaveMode.Overwrite).save("/Users/vishe/Downloads/finaltestingresults")
 
 }
